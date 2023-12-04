@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    // Dummy data - replace this with your actual data in the same format
+    // Data
     const data = [
     {
         "Category": "Deulist",
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         "Category": "Deulist",
         "Agent": "Jett",
         "Hours": 37.0,
-        "Matches": 65.0,
+        "Matches": 66.0,
         "Picture": "https://titles.trackercdn.com/valorant-api/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png"
     },
     {
@@ -108,19 +108,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 ];
 
-    // Set up the dimensions and margins of the graph
+    // Width & height of the visualization
     const margin = { top: 30, right: 150, bottom: 70, left: 60 },
           width = 960 - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
-    // Create an SVG element and append it to the DOM
+    // SVG
     const svg = d3.select("#visualization").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Set the ranges for the scales
+    // Ranges
     const xScale = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.Matches)])
         .range([0, width]);
@@ -129,15 +129,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         .domain([0, d3.max(data, d => d.Hours)])
         .range([height, 0]);
 
-    // Define the axes
+    // Axes
     const xAxis = d3.axisBottom(xScale),
           yAxis = d3.axisLeft(yScale);
 
-    // Add the X Axis
+    // X Axis
     svg.append("g")
         .attr("transform", `translate(0,${height})`)
         .call(xAxis);
-   // Add X axis label:
+   // X axis label:
     svg.append("text")
         .attr("text-anchor", "end")
         .attr("x", width / 2 + margin.left +285)
@@ -145,11 +145,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         .text("Matches");
 
 
-    // Add the Y Axis
+    // Y Axis
     svg.append("g")
         .call(yAxis);
   
-  // Add Y axis label:
+  // Y axis label:
     svg.append("text")
         .attr("text-anchor", "end")
         .attr("transform", "rotate(-90)")
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         .attr("x", -margin.top+10)
         .text("Hours Played");
 
-    // Define the div for the tooltip
+    // Tooltip
     const tooltip = d3.select("body").append("div")
         .attr("id", "tooltip")
         .style("opacity", 0);
@@ -166,19 +166,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
     window.filterCategory = function(category) {
         let filteredData = category === 'All' ? data : data.filter(d => d.Category === category);
 
-        // Join the filtered data with the current dots
+        // Filter
         dots = svg.selectAll(".dot")
             .data(filteredData, d => d.Agent);
 
-        // Exit old elements not present in new data
+        // Remove unneeded data
         dots.exit().remove();
 
-        // Enter any new data
+        // Filter new data
         const dotsEnter = dots.enter().append("circle")
             .attr("class", "dot")
             .attr("r", 6);
 
-        // Enter and Update
+        // Enter and update
         dotsEnter.merge(dots)
             .attr("cx", d => xScale(d.Matches))
             .attr("cy", d => yScale(d.Hours))
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             });
 
-        // Attach the click event handler to the dots here
+        // Hover
         dotsEnter.on("mouseover", function(event, d) {
             tooltip.transition()
                 .duration(200)
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 .style("left", (event.pageX) + "px")
                 .style("top", (event.pageY - 28) + "px");
         });
-        // Mouseout event to hide the tooltip
+        // Fade
         dotsEnter.on("mouseout", function() {
             tooltip.transition()
                 .duration(500)
@@ -210,6 +210,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
     };
 
-    // Initialize the filter to 'All'
+    // Refresh
     filterCategory('All');
 });
