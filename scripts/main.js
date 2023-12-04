@@ -213,3 +213,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Refresh
     filterCategory('All');
 });
+// Define 'dots' outside of any function to give it a broader scope
+let dots;
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    // ... rest of your code ...
+
+    // Define 'dots' here where you have your initial data binding
+    dots = svg.selectAll(".dot")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("class", "dot")
+        // ... rest of your dots attributes and event handlers ...
+
+    // Now your filterCategory function can access 'dots'
+    window.filterCategory = function(category) {
+        let filteredData = category === 'All' ? data : data.filter(d => d.Category === category);
+        
+        // Update 'dots' with the new data
+        dots = svg.selectAll(".dot")
+            .data(filteredData, d => d.Agent);
+
+        // ... rest of your update logic ...
+    };
+
+    // Initialize the filter to 'All'
+    filterCategory('All');
+});
