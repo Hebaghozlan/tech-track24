@@ -1,0 +1,107 @@
+[
+  {
+    "Category": "Deulist",
+    "Agent": "Reyna",
+    "Hours": "45 hours",
+    "Matches": 82,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/a3bfb853-43b2-7238-a4f1-ad90e9e46bcc/displayicon.png"
+  },
+  {
+    "Category": "Deulist",
+    "Agent": "Jett",
+    "Hours": "37 hours",
+    "Matches": 66,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png"
+  },
+  {
+    "Category": "Sentinel",
+    "Agent": "Sage",
+    "Hours": "33 hours",
+    "Matches": 59,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/569fdd95-4d10-43ab-ca70-79becc718b46/displayicon.png"
+  },
+  {
+    "Category": "Deulist",
+    "Agent": "Raze",
+    "Hours": "26 hours",
+    "Matches": 47,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/f94c3b30-42be-e959-889c-5aa313dba261/displayicon.png"
+  },
+  {
+    "Category": "Controller",
+    "Agent": "Omen",
+    "Hours": "24 hours",
+    "Matches": 41,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png"
+  },
+  {
+    "Category": "Initiator",
+    "Agent": "Gekko",
+    "Hours": "22 hours",
+    "Matches": 42,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/e370fa57-4757-3604-3648-499e1f642d3f/displayicon.png"
+  },
+  {
+    "Category": "Initiator",
+    "Agent": "Skye",
+    "Hours": "12 hours",
+    "Matches": 23,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/f94c3b30-42be-e959-889c-5aa313dba261/displayicon.pn"
+  },
+  {
+    "Category": "Sentinel",
+    "Agent": "Deadlock",
+    "Hours": "10 hours",
+    "Matches": 18,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/cc8b64c8-4b25-4ff9-6e7f-37b4da43d235/displayicon.png"
+  },
+  {
+    "Category": "Sentinel",
+    "Agent": "Killjoy",
+    "Hours": "6.3 hours",
+    "Matches": 11,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/1e58de9c-4950-5125-93e9-a0aee9f98746/displayicon.png"
+  },
+  {
+    "Category": "Controller",
+    "Agent": "Brimstone",
+    "Hours": "3.9 hours",
+    "Matches": 7,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/9f0d8ba9-4140-b941-57d3-a7ad57c6b417/displayicon.png"
+  },
+  {
+    "Category": "Deulist",
+    "Agent": "Neon",
+    "Hours": "3.6 hours",
+    "Matches": 7,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/bb2a4828-46eb-8cd1-e765-15848195d751/displayicon.png"
+  },
+  {
+    "Category": "Initiator",
+    "Agent": "Fade",
+    "Hours": "1.0 hours",
+    "Matches": 2,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png"
+  },
+  {
+    "Category": "Initiator",
+    "Agent": "Sova",
+    "Hours": "0.6 hours",
+    "Matches": 1,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/320b2a48-4d9b-a075-30f1-1f93a9b638fa/displayicon.png"
+  },
+  {
+    "Category": "Deulist",
+    "Agent": "Yoru",
+    "Hours": "0.4 hours",
+    "Matches": 1,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/7f94d92c-4234-0a36-9646-3a87eb8b5c89/displayicon.png"
+  },
+  {
+    "Category": "Sentinel",
+    "Agent": "Chamber",
+    "Hours": "0.3 hours",
+    "Matches": 1,
+    "Picture": "https://titles.trackercdn.com/valorant-api/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/displayicon.png"
+  }
+]
