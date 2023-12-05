@@ -4,6 +4,7 @@ body, html {
   font-family: 'Arial', sans-serif;
 }
 
+/* video styling */
 .landing-container {
   position: relative;
   height: 100vh;
@@ -36,22 +37,64 @@ video {
   text-align: center;
 }
 
-button {
+/*landingspage text styling*/
+.landing-content-wrapper {
+  position: absolute;
+  top: 50%;
+  margin-left: 50%;
+  transform: translateY(-50%);
+}
+
+/* styling & animation for h1 */
+.content h1 {
+  overflow: hidden; 
+  border-right: .15em solid #ff4655; 
+  color: #fff;
+  white-space: nowrap; 
+  width: 0; 
+  animation: typing 3s steps(30, end) forwards; 
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* styling & animation for p */
+.content p {
+  color: #fff;
+  opacity: 0;
+  animation: fade-in 3s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* call to action button styling */
+.explore-button {
   background-color: #ff4655;
-  color: white;
-  border: none;
-  padding: 15px 30px;
+  color: #fff;
+  border: 0.5px solid #fff;
+  padding: 14px 28px;
   font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s; 
 }
 
+.explore-button:hover {
+  background-color: #0d2d4f; 
+}
+
+/*data graph styling*/
 #visualization {
   flex-direction: column; 
   background: rgb(247,247,247);
   background: linear-gradient(15deg, rgba(247,247,247,1) 35%, rgba(255,68,84,1) 100%);
   padding-top: 20px; 
-  padding-bottom: 0px;
   margin-top: 1px;
   position: relative;
   display: flex;
@@ -59,43 +102,35 @@ button {
   justify-content: center;
 }
 
-
+/*filter buttons styling*/
 #filters {
-  margin-bottom: 20px
   text-align: center; 
 }
 
 #filters button {
+  color: white;
   padding: 5px 10px;
   margin: 0 5px;
-  margin-right: 5px;
-  background-color: #ddd;
-  border: none;
+  border: 1px solid #0d2d4f;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  outline: none;
 }
 
 #filters button:first-child {
   background-color: #9957bc;
-  color: white;
 }
 #filters button:nth-child(2) {
   background-color: #364966;
-  color: white;
 }
 #filters button:nth-child(3) {
   background-color: #042e27;
-  color: white;
 }
 #filters button:nth-child(4) {
   background-color: #dc3d4b;
-  color: white;
 }
 #filters button:last-child {
   background-color: #b78460;
-  color: white;
 }
 
 #filters button:hover {
@@ -103,11 +138,7 @@ button {
   color: black;
 }
 
-#filters button.active {
-  background-color: #ccc;
-  color: black;
-}
-
+/*legend styling*/
 #legend {
   position: absolute;
   top: 20px;
@@ -120,6 +151,7 @@ button {
 }
 
 #legend p {
+  margin-top: 0px;
   font-weight: bold;
 }
 
@@ -148,6 +180,7 @@ button {
   background-color: #b78460;
 }
 
+/*tooltip styling*/
 #tooltip {
   position: absolute;
   background-color: white;
@@ -156,23 +189,5 @@ button {
   border: 1px solid #ccc;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
   pointer-events: none;
-  opacity: 0;
   transition: opacity 0.3s;
-  z-index: 10;
-}
-
-#tooltip.hidden {
-  display: none;
-}
-
-#tooltip p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-#tooltip-agent-image {
-  max-width: 100px;
-  border-radius: 5px;
-  margin-top: 10px;
 }
