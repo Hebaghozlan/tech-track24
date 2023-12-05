@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // Valorant data
+document.addEventListener("DOMContentLoaded", function () {
+
+    // valorant data
     const data = [
         {
             "Category": "Deulist",
@@ -107,21 +107,21 @@ document.addEventListener("DOMContentLoaded", function() {
             "Matches": 1.0,
             "Picture": "https://titles.trackercdn.com/valorant-api/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/displayicon.png"
         }
-    ];    
+    ];
 
-    // Width & height of the visualization
+    // width & height of the visualization
     const margin = { top: 30, right: 150, bottom: 70, left: 60 },
-          width = 960 - margin.left - margin.right,
-          height = 500 - margin.top - margin.bottom;
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
     // SVG
     const svg = d3.select("#visualization").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-      .append("g")
+        .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Ranges
+    // ranges
     const xScale = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.Matches)])
         .range([0, width]);
@@ -130,58 +130,56 @@ document.addEventListener("DOMContentLoaded", function() {
         .domain([0, d3.max(data, d => d.Hours)])
         .range([height, 0]);
 
-    // Axes
+    // axes
     const xAxis = d3.axisBottom(xScale),
-          yAxis = d3.axisLeft(yScale);
+        yAxis = d3.axisLeft(yScale);
 
-    // X Axis
+    // X axis
     svg.append("g")
         .attr("transform", `translate(0,${height})`)
         .call(xAxis);
 
     // X axis label:
-        svg.append("text")
-            .attr("text-anchor", "end")
-            .attr("x", width / 2 + margin.left +285)
-            .attr("y", height + margin.top + 20)
-            .text("Matches");
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width / 2 + margin.left + 285)
+        .attr("y", height + margin.top + 20)
+        .text("Matches");
 
 
-    // Y Axis
-        svg.append("g")
-            .call(yAxis);
-  
-  // Y axis label:
-        svg.append("text")
-            .attr("text-anchor", "end")
-            .attr("transform", "rotate(-90)")
-            .attr("y", -margin.left+15 )
-            .attr("x", -margin.top+10)
-            .text("Hours Played");
+    // Y axis
+    svg.append("g")
+        .call(yAxis);
 
-  // Tooltip
-        const tooltip = d3.select("body").append("div")
-            .attr("id", "tooltip")
-            .style("opacity", 0);
+    // Y axis label:
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -margin.left + 15)
+        .attr("x", -margin.top + 10)
+        .text("Hours Played");
 
+    // tooltip
+    const tooltip = d3.select("body").append("div")
+        .attr("id", "tooltip")
 
-  // Filter function
-        window.filterCategory = function(category) {
+    // filter function
+    window.filterCategory = function (category) {
         let filteredData = category === 'All' ? data : data.filter(d => d.Category === category);
 
-  // Filter
+        // filter
         dots = svg.selectAll(".dot")
             .data(filteredData, d => d.Agent);
 
-  // Remove unneeded data
+        // remove unneeded data
         dots.exit().remove();
 
-  // Filter new data
+        // filter new data
         const dotsEnter = dots.enter().append("circle")
             .attr("class", "dot")
             .attr("r", 6);
 
-  // Enter and update
+        // enter and update data
         dotsEnter.merge(dots)
             .attr("cx", d => xScale(d.Matches))
             .attr("cy", d => yScale(d.Hours))
@@ -195,8 +193,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
-  // Hover
-        dotsEnter.on("mouseover", function(event, d) {
+        // hover
+        dotsEnter.on("mouseover", function (event, d) {
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
@@ -204,20 +202,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 .style("left", (event.pageX) + "px")
                 .style("top", (event.pageY - 28) + "px");
         });
-  // Fade
-        dotsEnter.on("mouseout", function() {
+        // fade
+        dotsEnter.on("mouseout", function () {
             tooltip.transition()
                 .duration(500)
                 .style("opacity", 0);
         });
-  
-};
 
-  // Refresh
+    };
+
+    // refresh
     filterCategory('All');
 });
 
-  // Smooth scroll to visualization
+    // smooth scroll to visualization
     function scrollToVisualization() {
-    document.getElementById('visualization').scrollIntoView({ behavior: 'smooth' });
-}
+        document.getElementById('visualization').scrollIntoView({ behavior: 'smooth' });
+    }
