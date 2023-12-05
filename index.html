@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="images/valorant.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Valorant Tracker</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+
+<!-- landing page container -->
+<div class="landing-container">
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="images/val.mov" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="landing-content-wrapper">
+        <div class="content">
+            <h1>Welcome to Valorant Tracker</h1>
+            <p>Discover my most played agents, stats and more...</p>
+            <button class="explore-button" onclick="scrollToVisualization()">Explore My Tracker</button>
+        </div>
+    </div>    
+</div>
+
+<div id="visualization">
+    
+    <!-- filter buttons for categories -->
+    <div id="filters">
+        <div id="filters">
+            <button onclick="filterCategory('All')" title="View all agents">All</button>
+            <button onclick="filterCategory('Deulist')" title="Duelists are self-sufficient fraggers who their team expects to get high frags and seek out engagements first.">Deulist</button>
+            <button onclick="filterCategory('Sentinel')" title="Sentinels are defensive experts who can lock down areas and watch flanks, both on attacker and defender rounds.">Sentinel</button>
+            <button onclick="filterCategory('Controller')" title="Controllers are experts in slicing up dangerous territory to set their team up for success.">Controller</button>
+            <button onclick="filterCategory('Initiator')" title="Initiators challenge angles by setting up their team to enter contested ground and push defenders away.">Initiator</button>
+        </div>
+    </div>
+
+    <!-- legend for the color categories -->
+    <div id="legend">
+        <p><strong>Legend:</strong></p>
+        <div><span class="legend-color deulist"></span> Deulist</div>
+        <div><span class="legend-color sentinel"></span> Sentinel</div>
+        <div><span class="legend-color controller"></span> Controller</div>
+        <div><span class="legend-color initiator"></span> Initiator</div>
+    </div>
+
+</div>
+
+
+<script src="scripts/main.js"></script>
+
+</body>
+</html>
